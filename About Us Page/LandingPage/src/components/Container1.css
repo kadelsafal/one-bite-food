@@ -1,0 +1,187 @@
+.image-23-icon {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.our-story-begins {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 68px;
+  font-weight: 400;
+  font-family: inherit;
+}
+.our-story-begins-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px var(--padding-8xl) 0px var(--padding-xl);
+}
+.at-poke-now {
+  flex: 1;
+  position: relative;
+  line-height: 28px;
+  display: inline-block;
+  max-width: 100%;
+}
+.at-poke-now-we-believe-fast-f-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 0px var(--padding-xs);
+  box-sizing: border-box;
+  max-width: 100%;
+  font-size: var(--font-size-lg);
+  font-family: var(--font-manrope);
+}
+.whats-poke {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 36px;
+  font-weight: 700;
+  font-family: inherit;
+}
+.poke-is-a {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-lg);
+  line-height: 28px;
+  font-family: var(--font-manrope);
+}
+.whats-poke-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+  font-size: var(--font-size-5xl);
+}
+.frame-container {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+  max-width: 100%;
+}
+.order-now {
+  position: relative;
+  font-size: var(--font-size-lg);
+  line-height: 28px;
+  font-family: var(--font-nunito);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 90px;
+}
+.button-16 {
+  cursor: pointer;
+  border: none;
+  padding: var(--padding-xs) var(--padding-45xl-5);
+  background-color: var(--color-tomato-100);
+  border-radius: var(--br-7xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+.button-16:hover {
+  background-color: var(--color-tomato-200);
+}
+.button-16-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 0px 0px var(--padding-12xs);
+}
+.container-16 {
+  width: 738px;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-white);
+  box-shadow:
+    0px 0px 2px rgba(23, 26, 31, 0.12),
+    0px 4px 9px rgba(23, 26, 31, 0.11);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--padding-17xl);
+  box-sizing: border-box;
+  gap: var(--gap-17xl);
+  max-width: calc(100% - 0px);
+  flex-shrink: 0;
+  z-index: 1;
+}
+.container-15 {
+  align-self: stretch;
+  height: 450px;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-215xl) var(--padding-xl) 0px;
+  box-sizing: border-box;
+  position: relative;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-gray-100);
+  font-family: var(--font-catamaran);
+}
+
+@media screen and (max-width: 1050px) {
+  .our-story-begins {
+    font-size: var(--font-size-19xl);
+    line-height: 54px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .container-16 {
+    gap: 18px 36px;
+    padding-top: var(--padding-4xl);
+    padding-bottom: var(--padding-4xl);
+    box-sizing: border-box;
+  }
+
+  .container-15 {
+    padding-top: var(--padding-133xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .our-story-begins {
+    font-size: var(--font-size-10xl);
+    line-height: 41px;
+  }
+
+  .whats-poke {
+    font-size: var(--font-size-lgi);
+    line-height: 29px;
+  }
+
+  .container-15 {
+    padding-top: var(--padding-80xl);
+    box-sizing: border-box;
+  }
+}

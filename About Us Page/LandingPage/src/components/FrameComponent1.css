@@ -1,0 +1,197 @@
+.vector-icon {
+  position: absolute;
+  top: 6px;
+  left: 0px;
+  width: 44.1px;
+  height: 35.6px;
+  z-index: 1;
+}
+.image-42 {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.poke-now {
+  position: relative;
+  line-height: 28px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.poke-now-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-sm) 0px 0px;
+}
+.image-42-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-7xs);
+}
+.menu {
+  position: relative;
+  line-height: 26px;
+  display: inline-block;
+  min-width: 41px;
+}
+.frame {
+  border-radius: var(--br-9xs);
+  background-color: var(--color-gray-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+}
+.our-story {
+  position: relative;
+  line-height: 26px;
+  display: inline-block;
+  min-width: 68px;
+}
+.frame1 {
+  flex: 1;
+  border-radius: var(--br-9xs);
+  background-color: var(--color-gray-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+  white-space: nowrap;
+}
+.location {
+  position: relative;
+  line-height: 26px;
+  display: inline-block;
+  min-width: 61px;
+}
+.frame2 {
+  flex: 1;
+  border-radius: var(--br-9xs);
+  background-color: var(--color-gray-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+}
+.gift-card {
+  position: relative;
+  line-height: 26px;
+  display: inline-block;
+  min-width: 48px;
+}
+.frame-group {
+  width: 360px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.container-28-inner {
+  width: 424px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 0px 0px;
+  box-sizing: border-box;
+  max-width: 100%;
+  font-size: var(--font-size-base);
+  color: var(--color-darkslategray-200);
+  font-family: var(--font-nunito);
+}
+.book-a-table {
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 26px;
+  font-family: var(--font-nunito);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 93px;
+}
+.button-26 {
+  cursor: pointer;
+  border: none;
+  padding: var(--padding-4xs) var(--padding-base);
+  background-color: var(--color-gray-100);
+  border-radius: var(--br-3xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+.button-26:hover {
+  background-color: var(--color-darkslategray-100);
+}
+.button-26-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 0px 0px;
+}
+.container-28 {
+  flex: 1;
+  border-radius: var(--br-9xs);
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-base) var(--padding-xl);
+  box-sizing: border-box;
+  gap: var(--gap-199xl);
+  max-width: 100%;
+}
+.container-28-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 0px 0px var(--padding-12xs);
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-100);
+  font-family: var(--font-lexend);
+}
+
+@media screen and (max-width: 1200px) {
+  .container-28 {
+    gap: 218px 109px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .frame-group {
+    display: none;
+  }
+
+  .container-28-inner {
+    width: 64px;
+  }
+
+  .container-28 {
+    gap: 218px 54px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container-28 {
+    gap: 218px 27px;
+  }
+}
