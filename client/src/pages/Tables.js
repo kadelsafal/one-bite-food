@@ -18,6 +18,7 @@ function Tables() {
         </div>
         <div className='cards'>
       <Card 
+      layout="default"
         image ={tablepic1}
         title = "Table 1"
         description = "No. of People • 4"
@@ -26,6 +27,7 @@ function Tables() {
         time1='• 10 AM - 12 PM'
       />
       <Card 
+      layout="default"
         image ={tablepic1}
         title = "Table 1"
         description = "No. of People • 4"
@@ -34,6 +36,7 @@ function Tables() {
         time1='• 10 AM - 12 PM'
       />
       <Card 
+      layout="default"
         image ={tablepic1}
         title = "Table 1"
         description = "No. of People • 4"
@@ -42,6 +45,7 @@ function Tables() {
         time1='• 10 AM - 12 PM'
       />
       <Card 
+      layout="default"
         image ={tablepic1}
         title = "Table 1"
         description = "No. of People • 4"
@@ -50,6 +54,7 @@ function Tables() {
         time1='• 10 AM - 12 PM'
       />
       <Card 
+      layout="default"
         image ={tablepic1}
         title = "Table 1"
         description = "No. of People • 4"
@@ -58,6 +63,7 @@ function Tables() {
         time1='• 10 AM - 12 PM'
       />
       <Card 
+      layout="default"
         image ={tablepic1}
         title = "Table 1"
         description = "No. of People • 4"
@@ -66,6 +72,7 @@ function Tables() {
         time1='• 10 AM - 12 PM'
       />
       <Card 
+      layout="default"
         image ={tablepic1}
         title = "Table 1"
         description = "No. of People • 4"
@@ -76,6 +83,7 @@ function Tables() {
 
       
       <Card 
+      layout="default"
         image ={tablepic1}
         title = "Table 1"
         description = "No. of People • 4"
