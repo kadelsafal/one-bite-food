@@ -1,0 +1,13 @@
+form.signup input#email,input#name,input#password {
+  width: 100%; /* Take up full width */
+ height: 2.5rem; /* Adjust as needed */
+  margin-bottom: 1rem; /* Adjust as needed */
+  background-color: rgb(226 226 226);
+  color: black;
+  border: none;
+  outline: none;
+  margin-bottom: 2rem;
+}
+form.signup  h3{
+    margin: 2rem 0rem 2rem 0rem;
+}

@@ -1,0 +1,80 @@
+/* Homepage.css */
+
+.homepage {
+    font-family: 'Manrope', sans-serif;
+    color: #333; 
+    text-align: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 50px; /* Adjust the width according to your logo size */
+    margin-right: 10px;
+  }
+  
+  
+  header {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #080000; 
+    
+  }
+  
+  
+  main {
+    padding: 20px;
+  }
+  .picture{
+    display: flex;
+    align-items: center;
+  }
+  .picture img{
+    height: 550px;
+    width: 1400px;
+    margin: 40px;
+  }
+  .picture2{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    
+  }
+  .picture2 img{
+    display: flex;
+    align-items: end;
+    width: 300px;
+    margin: 10px;
+  }
+  .pictures3 img{
+    width: 100px;
+    margin: 10px;
+  }
+  .button{
+    background-color: chocolate;
+  }
+  
+  footer {
+    background-color: #f0f0f0; /* Secondary color from your color palette */
+    padding: 10px;
+    text-align: center;
+  }
+  
