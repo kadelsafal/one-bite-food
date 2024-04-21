@@ -1,0 +1,115 @@
+/* Homepage.css */
+
+.h3{
+  font-size: 32px;
+  color: #333;
+
+}
+.section-about {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  font-size: 32px;
+  color: #333;
+}
+
+.about-content p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+}
+
+  .picture{
+    display: flex;
+    align-items: center;
+  }
+  .picture img{
+    padding: 1;
+    height: 400px;
+    width: 1300px;
+    margin: 30px;
+  }
+  .picture2{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    
+  }
+  .picture2 img{
+    display: flex;
+    align-items: end;
+    width: 30px;
+    margin: 10px;
+  }
+  .pictures3 img{
+    width: 100px;
+    margin: 10px;
+  }
+  
+  
+  
+
+/* Section for the main picture */
+.section-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Section for the About Us paragraph */
+.section-about {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  font-size: 32px;
+  color: #333;
+}
+
+.about-content p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Section for the Top Sales pictures */
+.section-top-sales {
+  padding: 50px ;
+}
+
+.pictures3 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.picture-item {
+  width: 10%; 
+}
+
+.picture-item img {
+  width: 100%;
+  height: auto;
+}
