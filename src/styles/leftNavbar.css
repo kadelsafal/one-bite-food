@@ -1,0 +1,30 @@
+/* Navbar.css */
+nav{
+    background-color: #B5C0D0;
+    padding: 10px;
+    min-height: 609px;
+    max-width: 160px;
+}
+
+nav ul {
+    list-style: none; 
+    padding: 0px;
+  }
+  
+  nav ul li {
+    display: flex;
+    align-items: center; 
+    margin-left: 0;
+    padding-bottom: 13px;
+  }
+
+  nav ul li a {
+    text-decoration: none; 
+    color: black; 
+    font-weight: bold; 
+    font-size: medium;
+  }
+  
+  nav ul li a:hover {
+    color: crimson; /*color while hovering*/
+  }

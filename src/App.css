@@ -1,4 +1,4 @@
-.App {
+/*.App {
   width: 100%;
   height: auto;
   display: flex;
@@ -62,4 +62,33 @@ body {
 .read-the-docs {
   color: #888;
 }
+*/
 
+.container {
+  display: flex;
+}
+
+/* Adjust width as needed */
+.left-navbar {
+  width: 200px;
+}
+
+.dashboard-page {
+  flex: 1;
+}
+
+.waiters-list {
+  width: 200px;
+}
+
+
+.App {
+  display: flex;
+  height: 100vh; /* Make sure the container fills the full viewport height */
+}
+
+.main-content {
+  flex: 1; /* Take up remaining space */
+  padding: 20px; /* Add padding to create space between Navbar and content */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}

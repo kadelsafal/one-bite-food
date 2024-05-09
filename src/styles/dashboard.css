@@ -1,0 +1,54 @@
+/* dashboard.css */
+
+.dashboard-container {
+  display: flex;
+}
+
+.LeftNavbar,
+.dashboard,
+.sidebar {
+  margin-bottom: 20px; /* Add margin to separate each section */
+}
+
+.dashboard {
+  flex: 1; /* Take remaining space */
+  padding: 5px;
+}
+
+.LeftNavbar,
+.WaitersList,
+.sidebar {
+  width: 200px;
+  padding: 20px;
+}
+
+.dashboard h1,
+.dashboard table {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px; /* margin to separate each section */
+  background-color: #f7f7f7; /* background color */
+  border: 1.2px solid black; 
+
+}
+
+.table-heading {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.table-heading th {
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid #888; /* Darken border color */
+  padding: 10px;
+}
