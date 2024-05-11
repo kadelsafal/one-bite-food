@@ -1,20 +1,21 @@
 import './App.css';
-import LeftNavbar from './Components/leftNavbar'; // Import LeftNavbar component
-import Dashboard from './pages/Dashboard'; // Import Dashboard component
-import WaiterOrder from './pages/WaiterOrder'; // Import WaiterOrder component
+import Dashboard from './pages/Dashboard';
+import WaiterOrder from './pages/WaiterOrder';
+import Login from './pages/Login'; // Import Login component
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <LeftNavbar />
-        <div className='main-content'>
-          <Switch>
-            <Route path="/dashboard" exact component={Dashboard} />
-            <Route path="/waiter-order" exact component={WaiterOrder} />
-          </Switch>
-        </div>
+        <Switch>
+          {/* Route for the Login page */}
+          <Route path="/" exact component={Login} />
+          {/*ROute for dashboard*/}
+          <Route path="/dashboard" component={Dashboard} />
+          {/*Route for menu waiter*/}
+          <Route path="/waiter-order" component={WaiterOrder} />
+        </Switch>
       </Router>
     </div>
   );

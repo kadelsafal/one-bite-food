@@ -11,8 +11,8 @@ app.use(express.json());
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
-  database: 'user-login'
+  password: '', 
+  database: 'collaborative'
 });
 
 db.connect((err) => {
@@ -22,43 +22,40 @@ db.connect((err) => {
   console.log('Connected to MySQL database');
 });
 
+// Endpoint for user login
 app.post('/api/login', (req, res) => {
-    const { email, password } = req.body;
-    const sql = `SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`;
-    db.query(sql, (err, result) => {
-      if (err) {
-        throw err;
-;
-      }
-      if (result.length > 0) {
-        res.json({ success: true, message: 'Login successful', user: result[0] });
-      } else {
-        res.json({ success: false, message: 'Invalid email or password' });
-      }
-    });
-  });
-  
-app.post('/api/signup', (req, res) => {
-  const { name, email, password } = req.body;
-  const sql = `SELECT * FROM users WHERE email = '${email}'`;
-  db.query(sql, (err, result) => {
-    if (err) {
-      throw err;
+  const { email, password } = req.body;
+
+  // Check in admin table
+  const adminSql = `SELECT * FROM admin WHERE email = ? AND password = ?`;
+  db.query(adminSql, [email, password], (adminErr, adminResult) => {
+    if (adminErr) {
+      throw adminErr;
     }
-    if (result.length > 0) {
-      res.json({ success: false, message: 'User already exists' });
+
+    if (adminResult.length > 0) {
+      // Admin login successful
+      res.json({ success: true, role: 'admin', message: 'Admin login successful', user: adminResult[0] });
     } else {
-      const insertSql = `INSERT INTO users (name, email, password) VALUES ('${name}', '${email}', '${password}')`;
-      
-      db.query(insertSql, (insertErr, insertResult) => {
-        if (insertErr) {
-          throw insertErr;
+      // Check in waiter table if not found in admin table
+      const waiterSql = `SELECT * FROM waiter WHERE email = ? AND password = ?`;
+      db.query(waiterSql, [email, password], (waiterErr, waiterResult) => {
+        if (waiterErr) {
+          throw waiterErr;
         }
-        res.json({ success: true, message: 'Signup successful' });
+
+        if (waiterResult.length > 0) {
+          // Waiter login successful
+          res.json({ success: true, role: 'waiter', message: 'Waiter login successful', user: waiterResult[0] });
+        } else {
+          // Invalid email or password
+          res.json({ success: false, message: 'Invalid email or password' });
+        }
       });
     }
   });
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -1,30 +1,40 @@
-/* Navbar.css */
-nav{
-    background-color: #B5C0D0;
-    padding: 10px;
-    min-height: 609px;
-    max-width: 160px;
+nav {
+  top: 20px; /* Position from the top */
+  left: 0; /* Position from the left */
+  bottom: 20px; /* Position from the bottom */
+  height: calc(100% - 40px); /* Full height minus top and bottom margins */
+  background-color: #B5C0D0;
+  padding: 10px;
+  min-width: 160px; /* Fixed width */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
 }
 
 nav ul {
-    list-style: none; 
-    padding: 0px;
-  }
-  
-  nav ul li {
-    display: flex;
-    align-items: center; 
-    margin-left: 0;
-    padding-bottom: 13px;
-  }
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Remove default margin */
+}
 
-  nav ul li a {
-    text-decoration: none; 
-    color: black; 
-    font-weight: bold; 
-    font-size: medium;
-  }
-  
-  nav ul li a:hover {
-    color: crimson; /*color while hovering*/
-  }
+nav ul li {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  padding-bottom: 13px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: medium;
+}
+
+nav ul li a:hover {
+  color: crimson; /* Color while hovering */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

@@ -8,10 +8,12 @@ import menupic6 from '../assets/menu_img6.jpg';
 import menupic7 from '../assets/menu_img7.jpg';
 import menupic8 from '../assets/menu_img8.jpg';
 import Card from "../Card";
+import LeftNavbar from '../Components/leftNavbar';
 
 function WaiterOrder() {
   return (
-    <div>
+    <div className='container'>
+      <LeftNavbar />
       <main>
         <div className='heading-txt'>
           <h1>Waiter Order</h1>
@@ -74,14 +76,6 @@ function WaiterOrder() {
             buttons = "Takeaway"
           />
           <Card
-            layout= "menu"
-            image ={menupic8}
-            title = "Avocado Salad"
-            description = "• Avocado • Tomato • Olive oil"
-            price="425"
-            buttons = "Takeaway"
-          />
-           <Card
             layout= "menu"
             image ={menupic8}
             title = "Avocado Salad"

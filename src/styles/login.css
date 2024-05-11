@@ -1,0 +1,98 @@
+.login-container {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse; /* Reversed direction to position image to the right */
+    height: 100vh;
+    padding-left: 45px;
+  }
+  
+  .login-pic {
+    flex: 1; /* Occupy half of the width */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the image vertically */
+    padding-right: 30px;
+  }
+  
+  .login-pic img {
+    width: 100%;
+    max-height: 100%; /* Adjust height to match container height */
+    object-fit: cover; /* Ensure image covers the entire container */
+  }
+  
+  .login-content {
+    flex: 1; /* Occupy the other half of the width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* White background */
+  }
+  
+  .login-header {
+    width: 100%; /* Full width */
+    text-align: center;
+  }
+  
+  .login-header h2 {
+    font-size: 44px;
+    color: #333;
+  }
+  
+  form {
+    width: 100%; /* Full width */
+    max-width: 400px; /* Limit form width */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  input, select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  button{
+    font-size: 18px;
+    width: fit-content;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    margin-bottom: 15px;
+  }
+  
+  .text-error {
+    color: red;
+    font-size: 14px;
+  }
+  
+  .login-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+  }
+  
+  .login-dialog p {
+    margin-bottom: 10px;
+  }
+  
+  .login-dialog button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login-dialog button:hover {
+    background-color: #0056b3;
+  }
+  

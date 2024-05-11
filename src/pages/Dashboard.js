@@ -1,5 +1,6 @@
 import '../styles/dashboard.css'
 import WaitersList from './WaitersList';
+import LeftNavbar from '../Components/leftNavbar';
 
 const Dashboard = () => {
   // Mock data for recent orders and cancelled orders
@@ -18,6 +19,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
+      <LeftNavbar />
       <div className="dashboard">
       <h1>Dashboard</h1>
 

@@ -1,10 +1,9 @@
-// Navbar.js
 import logo from "../assets/vector.png";
 import dashboard from "../assets/dashboard.png";
 import menu from "../assets/menu.png";
 import setting from "../assets/settings.png";
 import analysis from "../assets/analysis.png";
-import '../styles/leftNavbar.css'
+import '../styles/leftNavbar.css';
 import {Link} from 'react-router-dom';
 
 const Navbar = () => {

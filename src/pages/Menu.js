@@ -9,6 +9,8 @@ import menupic6 from '../assets/menu_img6.jpg';
 import menupic7 from '../assets/menu_img7.jpg';
 import menupic8 from '../assets/menu_img8.jpg';
 import Card from "../Card";
+import LeftNavbar from '../Components/leftNavbar'; // Import LeftNavbar component
+
 function Menu() {
   return (
     <div>
