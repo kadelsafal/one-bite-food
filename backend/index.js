@@ -56,6 +56,38 @@ app.post('/api/login', (req, res) => {
   });
 });
 
+// Endpoint to fetch waiter data
+app.get('/api/waiter', (req, res) => {
+  // Query to select all waiters from the database
+  const sql = `SELECT name, image_url FROM waiter`;
+
+  // Execute the SQL query
+  db.query(sql, (err, result) => {
+    if (err) {
+      // If an error occurs, send an error response
+      res.status(500).json({ success: false, message: 'Failed to fetch waiter data' });
+    } else {
+      // If successful, send the waiter data as a JSON response
+      res.json({ success: true, waiters: result });
+    }
+  });
+});
+
+// Endpoint to fetch all orders
+app.get('/api/orders', (req, res) => {
+  const sql = `SELECT Name, TableNo, Food, Price, Quantity, TotalAmount, Status, Takeaway FROM orders`;
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error('Error fetching orders:', err);
+      res.status(500).json({ success: false, message: 'Failed to fetch orders' });
+    } else {
+      res.json({ success: true, orders: result });
+    }
+  });
+});
+
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
