@@ -86,7 +86,12 @@ app.get('/api/orders', (req, res) => {
   });
 });
 
-
+// Endpoint for user logout
+app.post('/api/logout', (req, res) => {
+  // You may want to perform additional cleanup or session management here
+  // For now, let's simply respond with a success message
+  res.json({ success: true, message: 'Logout successful' });
+});
 
 
 app.listen(port, () => {
