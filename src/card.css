@@ -97,8 +97,8 @@
     color: white;
     font-size: 0.8vw;
     outline: none;
-    padding: 1vw;
     cursor: pointer;
+    border: 0.9px solid black;
 }
 
 .button:hover {

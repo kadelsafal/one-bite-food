@@ -1,12 +1,31 @@
+import { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom'; // Import useHistory hook
 import logo from "../assets/vector.png";
 import dashboard from "../assets/dashboard.png";
 import menu from "../assets/menu.png";
 import setting from "../assets/settings.png";
 import analysis from "../assets/analysis.png";
 import '../styles/leftNavbar.css';
-import {Link} from 'react-router-dom';
 
 const Navbar = () => {
+  const history = useHistory(); // Initialize useHistory hook
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false); // State to manage dialog visibility
+
+  // Define handleLogout function
+  const handleLogout = () => {
+    // Clear any authentication-related data (if any)
+    // For example, clear local storage or session storage
+    localStorage.removeItem('token'); // Example: Remove authentication token
+
+    // Show logout dialog
+    setShowLogoutDialog(true);
+
+    // Redirect to the home page after 2 seconds
+    setTimeout(() => {
+      history.push('/');
+    }, 2000);
+  };
+
   return (
     <nav>
       <div className="logo">
@@ -18,24 +37,31 @@ const Navbar = () => {
         <li>
           <img src={dashboard} alt="Dashboard" style={{ width: '20px', marginRight: '5px' }} />
           <Link to='/dashboard'>Dashboard</Link>
-          <a href="/dashboard"></a>
         </li>
         <li>
           <img src={menu} alt="Menu" style={{ width: '20px', marginRight: '5px' }} />
           <Link to='/waiter-order'>Waiter Order</Link>
-          <a href="/menu"></a>
         </li>
         <li>
           <img src={setting} alt="Setting" style={{ width: '20px', marginRight: '5px' }} />
           <Link to='/setting'>Setting</Link>
-          <a href="/setting"></a>
         </li>
         <li>
           <img src={analysis} alt="Analysis" style={{ width: '20px', marginRight: '5px' }} />
           <Link to='/analysis'>Analysis</Link>
-          <a href="/analysis"></a>
+        </li>
+        <li>
+          {/* Logout button */}
+          <button className="logout-button" onClick={handleLogout}>Logout</button>
         </li>
       </ul>
+
+      {/* Logout dialog */}
+      {showLogoutDialog && (
+        <div className="logout-dialog">
+          <p>Successful Logout</p>
+        </div>
+      )}
     </nav>
   );
 }
