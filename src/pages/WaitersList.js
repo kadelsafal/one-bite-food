@@ -3,21 +3,22 @@ import axios from 'axios';
 import '../styles/WaiterList.css';
 
 const WaiterList = () => {
-  // State to store fetched waiter data
   const [waiters, setWaiters] = useState([]);
+  const [setError] = useState('');
 
-  // Effect to fetch waiter data from the API endpoint
   useEffect(() => {
-    // Fetch waiter data from the API endpoint
-    axios.get('http://localhost:3001/api/waiter') // Assuming backend is running on port 3001
-      .then(response => {
-        // Update state with the fetched waiter data
-        setWaiters(response.data.waiters);
-      })
-      .catch(error => {
-        console.error('Error fetching waiter data:', error);
-      });
-  }, []); // Empty dependency array ensures the effect runs only once after initial render
+    fetchWaiters();
+  }, []);
+
+  const fetchWaiters = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/api/waiters');
+      setWaiters(response.data.waiters);
+    } catch (error) {
+      console.error('Error fetching waiters:', error);
+      setError('Failed to fetch waiters. Please try again later.');
+    }
+  };
 
   return (
     <div className="waiter-list">
