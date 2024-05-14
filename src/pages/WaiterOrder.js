@@ -60,10 +60,10 @@ function WaiterOrder() {
         // Show success dialog
         setShowSuccessDialog(true);
   
-        // Automatically close the success dialog after 2 seconds
+        // Automatically close the success dialog after 5 seconds
         setTimeout(() => {
           setShowSuccessDialog(false);
-        }, 6000);
+        }, 10000);
       } else {
         throw new Error('Failed to submit orders');
       }
@@ -72,6 +72,7 @@ function WaiterOrder() {
       // Handle error
     }
   };
+  
   
 
   return (
