@@ -93,6 +93,31 @@ app.post('/api/logout', (req, res) => {
   res.json({ success: true, message: 'Logout successful' });
 });
 
+app.post('/api/submit-order', (req, res) => {
+  const { name, tableNo, food, price, quantity, takeaway } = req.body;
+
+  // Assuming 'orders' table schema: Name, TableNo, Food, Price, Quantity, Takeaway
+
+  // SQL query to insert order details into the database
+  const sql = `
+    INSERT INTO orders (Name, TableNo, Food, Price, Quantity, Takeaway) 
+    VALUES (?, ?, ?, ?, ?, ?)
+  `;
+  const values = [name, tableNo, food, price, quantity, takeaway];
+
+  // Execute the SQL query
+  db.query(sql, values, (err, result) => {
+    if (err) {
+      // If an error occurs, send an error response
+      console.error('Error submitting order:', err);
+      res.status(500).json({ success: false, message: 'Failed to submit order' });
+    } else {
+      // If successful, send a success response
+      res.json({ success: true, message: 'Order submitted successfully' });
+    }
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -56,43 +56,62 @@
   }
 
   button{
-    font-size: 18px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
     width: fit-content;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white;
-    margin-bottom: 15px;
+    border: 0.9px solid black;
+    padding: auto;
+  }
+
+  button:hover {
+    background-color: rgb(109, 36, 51);
   }
   
   .text-error {
     color: red;
     font-size: 14px;
   }
-  
+
   .login-dialog {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #fff;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: fit-content;
   }
   
   .login-dialog p {
     margin-bottom: 10px;
   }
   
+  .login-dialog.success {
+    border: 2px solid black; /* Green border for success */
+  }
+  
+  .login-dialog.error {
+    border: 2px solid #dc3545; /* Red border for error */
+  }
+  
   .login-dialog button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+    font-size: 11px;
+    background-color: white;
+    color: black;
+    border: 1.2px solid black;
+    padding: 5px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+  
   }
   
   .login-dialog button:hover {
-    background-color: #0056b3;
+    background-color: crimson; /* Darker blue color on hover */
   }
+  
   
