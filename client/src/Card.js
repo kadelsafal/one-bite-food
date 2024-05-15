@@ -1,7 +1,20 @@
-import React from 'react';
-import './card.css';
 
-function Card({ layout, title, description, image, buttons,button, booked, time1, time2, time3, Available, price }) {
+import './card.css';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+function Card({ layout, title, description, image,onClick, button ,booked, Available, price,addToTakeawayCart }) {
+  const [quantity, setQuantity] = useState(1);
+ 
+  
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+}
+const decrementQuantity = () => {
+  if (quantity > 0) {
+    setQuantity(quantity - 1);
+  }
+}
+
   if (layout === 'menu') {
     return (
       <div className='card-box'>
@@ -12,10 +25,15 @@ function Card({ layout, title, description, image, buttons,button, booked, time1
           <div className='menu-description'>
             <h3 className="card-title">{title}</h3>
             <p className="card-description">{description}</p>
+            <p className='price'>${price}</p>
           </div>
           <div className='menu-button'>
-            <p className='price'>${price}</p>
-            <button className='button'>{buttons}</button>
+            <div className="quantity-controls">
+            <button className='quantity-button' onClick={decrementQuantity}>-</button>
+            <span className="quantity">{quantity}</span>
+            <button className='quantity-button' onClick={incrementQuantity}>+</button>
+          </div>
+          <button className='button' onClick={() => addToTakeawayCart(quantity)}>Takeaway</button>
           </div>
         </div>
       </div>
@@ -30,13 +48,12 @@ function Card({ layout, title, description, image, buttons,button, booked, time1
           <div className="descriptions">
             <h3 className="card-title">{title}</h3>
             <p className="card-description">{description}</p>
-            <button className='buttons'>{button}</button>
+            <button className='buttons' onClick={onClick}>{button} </button>
           </div>
           <div className='booked-menu'>
             <p>{booked}</p>
-            {booked !== '' && <p>{time1}</p>}
-            <p>{time2}</p>
-            <p>{time3}</p>
+            {booked !== '' }
+            
           </div>
           {/* Conditionally render the "option" div */}
           {booked ? null : (
@@ -49,5 +66,24 @@ function Card({ layout, title, description, image, buttons,button, booked, time1
     );
   }
 }
+Card.propTypes = {
+  layout: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  buttonns: PropTypes.array.isRequired,
+  button: PropTypes.string.isRequired,
+  booked: PropTypes.string.isRequired,
+  Available: PropTypes.bool.isRequired,
+  price: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.func.isRequired,
+  addToTakeawayCart: PropTypes.func.isRequired,
+  
+};
+Card.defaultProps = {
+  // Other default props...
+  addToTakeawayCart: () => {}, // Provide a default function
+};
 
 export default Card;
