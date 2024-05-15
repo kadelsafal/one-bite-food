@@ -1,0 +1,99 @@
+.settings-container {
+    position: fixed;
+    
+    left: 71%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 426px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0px;
+    box-shadow: 5px 31px 60px -36px rgb(71, 70, 70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0rem 0rem 9rem 9rem;
+   
+}
+.settings-content {
+    background-color: white;
+    width: 100%;
+    border-radius: 0rem 0rem 9rem 9rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 20px;
+    
+
+}
+.user-icons {
+    width: 78px;
+    height: auto;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+.text-field {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 10px 18px 10px;
+}
+.text-field input#name, input#email {
+    margin: 0;
+    border-bottom: 2px solid #80808059;
+    background: #acacac2e;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.text-field input#oldPassword, input#newPassword {
+    margin: 0;
+    border: none;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 2rem;
+    padding: 8px;
+    background: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 13px;
+}
+button.change_pwd_btn {
+    cursor: pointer;
+    padding: 14px;
+    font-size: 13px;
+    border-radius: 3rem;
+    background: none;
+    left: 5%;
+    position: relative;
+}
+button.change_pwd_btn:hover {
+    transform: scale(1.015); /* Increase size by 20% */
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.75);
+}
+button.change_pwdbtn {
+    cursor: pointer;
+    padding: 14px;
+    font-size: 13px;
+    border-radius: 3rem;
+    background: none;
+    left: 5%;
+    position: relative;
+}
+button.change_pwdbtn:hover {
+    transform: scale(1.015); /* Increase size by 20% */
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.75);
+}
+.password-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

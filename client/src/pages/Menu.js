@@ -1,102 +1,80 @@
-import '../styles/menu.css';// Make sure to import your CSS file
+import '../styles/menu.css'; 
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import menupic from "../assets/pexels-mister-mister-3490364.jpg";
-import menupic1 from '../assets/menu_img1.jpg';
-import menupic2 from '../assets/menu_img2.jpg';
-import menupic3 from '../assets/menu_img3.jpg';
-import menupic4 from '../assets/menu_img4.jpg';
-import menupic5 from '../assets/menu_img5.jpg';
-import menupic6 from '../assets/menu_img6.jpg';
-import menupic7 from '../assets/menu_img7.jpg';
-import menupic8 from '../assets/menu_img8.jpg';
 import Card from "../Card";
-function Menu() {
+import Takeawaycart from './Takeawaycart';
+import Navbar from '../Components/Navbar';
+
+function Menu({ selectedItems, setSelectedItems}) { // Destructure setSelectedItems from props
+  
+  const [showCart, setShowCart] = useState(false);
+  const [menuItems, setMenuItems] = useState([]);
+
+  useEffect(() => {
+    fetchMenuItems();
+  }, []);
+  
+  const fetchMenuItems = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/menu-items');
+      const data = await response.json();
+      setMenuItems(data);
+    } catch (error) {
+      console.error('Error fetching menu items:', error);
+    }
+  };
+  
+  const addToTakeawayCart = (item, quantity) => {
+    const existingItemIndex = selectedItems.findIndex((selectedItem) => selectedItem.title === item.title);
+    const price = parseFloat(item.price);
+    
+    if (existingItemIndex !== -1) {
+      setSelectedItems(prevItems => {
+        const updatedItems = [...prevItems];
+        updatedItems[existingItemIndex] = {
+          ...updatedItems[existingItemIndex],
+          quantity: updatedItems[existingItemIndex].quantity + quantity, // Increment quantity by the provided amount
+        };
+        return updatedItems;
+      });
+    } else {
+      setSelectedItems(prevItems => [...prevItems, { ...item, price, quantity }]);
+    }
+  };
+  
   return (
     <div>
       <main>
-        <div className='pic' >
+        <div className='pic'>
           <img src={menupic} alt='img'  />
         </div>
         <div className='heading-txt'>
           <h1>Our Menu</h1>
         </div>
         <div className='cards'>
-          <Card
-          layout= "menu"
-          image ={menupic1}
-          title = "Pâtes alfredo"
-          description = "• Butter • Cheese • Shrimp"
-          price="20"
-          buttons = "Takeaway"
-          
-          />
-          <Card
-          layout= "menu"
-          image ={menupic2}
-          title = "Sphaghetti Bolongnese"
-          description = "• Sphaghetti • Sauce • Cheese"
-          price="20"
-          buttons = "Takeaway"
-          
-          />
-          <Card
-          layout= "menu"
-          image ={menupic3}
-          title = "Baked Salmon with Lemon Sauce"
-          description = "• Onion • Meat • Bake"
-          price="20"
-          buttons = "Takeaway"
-          
-          />
-          <Card
-          layout= "menu"
-          image ={menupic4}
-          title = "Pancake"
-          description = "• Onion • Meat • Bake"
-          price="20"
-          buttons = "Takeaway"
-          
-          />
-          <Card
-          layout= "menu"
-          image ={menupic5}
-          title = "Pancake"
-          description = "• Onion • Meat • Bake"
-          price="20"
-          buttons = "Takeaway"
-          
-          />
-          <Card
-          layout= "menu"
-          image ={menupic6}
-          title = "Pancake"
-          description = "• Onion • Meat • Bake"
-          price="20"
-          buttons = "Takeaway"
-          
-          />
-          <Card
-          layout= "menu"
-          image ={menupic7}
-          title = "Pancake"
-          description = "• Onion • Meat • Bake"
-          price="20"
-          buttons = "Takeaway"
-          
-          />
-          <Card
-          layout= "menu"
-          image ={menupic8}
-          title = "Pancake"
-          description = "• Onion • Meat • Bake"
-          price="20"
-          buttons = "Takeaway"
-          
-          />
-         
+          {menuItems.map((menuItem) => (
+            <Card
+              key={menuItem.id} // Assuming each menu item has a unique ID
+              layout="menu"
+              image={`data:image/jpeg;base64,${menuItem.image.toString('base64')}`}
+              title={menuItem.title}
+              description={menuItem.description}
+              price={menuItem.price}
+              addToTakeawayCart={(quantity) => addToTakeawayCart(menuItem, quantity)}
+            />
+          ))}
         </div>
       </main>
+      <Takeawaycart onClose={() => setShowCart(false)} selectedItems={selectedItems} setSelectedItems={setSelectedItems} showCart={showCart} />
+      <Navbar selectedItems={selectedItems} setSelectedItems={setSelectedItems}/>
     </div>
   );
 }
+
+Menu.propTypes = {
+  selectedItems: PropTypes.array.isRequired, // Validate selectedItems prop
+  setSelectedItems: PropTypes.func.isRequired, // Validate setSelectedItems prop
+};
 
 export default Menu;

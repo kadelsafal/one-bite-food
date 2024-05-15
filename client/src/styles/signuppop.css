@@ -1,12 +1,244 @@
-form.signup input#email,input#name,input#password {
-  width: 100%; /* Take up full width */
- height: 2.5rem; /* Adjust as needed */
-  margin-bottom: 1rem; /* Adjust as needed */
-  background-color: rgb(226 226 226);
+body.modal-open {
+  overflow: hidden;
+}
+.popups-container {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.popups {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 30px;
+  height: 502px;
+  max-width: 753px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+.close {
+  width: 100%;
+  float: left;
+  display: flex;
+  justify-content: flex-end;
+}
+button.close-btn {
+  padding: 5px;
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+.close-btn:hover {
+  background-color: red;
+  color: white;
+}
+
+.popups-header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.popups-header h2{
+  margin: 0;
+  padding: 7px;
+  padding-left: 30px;
+}
+.popups-pic {
+  width: 90%;
+  height: 100%;
+  order: 1;
+  cursor: pointer;
+}
+.popups-pic img {
+  width: 100%;
+  height: 100%;
+  
+}
+.popups-content {
+  width: 100%;
+  height: 100%;
+}
+.popups-body {
+  order: 2;
+  width: 50%;
+}
+/* CSS for the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0rem 2rem 1rem 2rem;
+}
+
+form h3{
+  font-size: 16px;
+  font-weight: 100;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+input#email, input#name, input#password1 {
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 2rem;
+  background-color: rgb(239 244 244);
+  color: black;
+  border: none;
+  outline: none;
+  padding: 0px 10px 0px 10px;
+  border-bottom: 2px solid black;
+  border-radius: 1rem;
+  
+}
+button[type="submit"] {
+  width: 80%;
+  align-self: center;
+  height: 3rem;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 1.25rem;
+    border-bottom: 5px solid #ff044a;
+}
+.text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Adjust as needed */
+  cursor: pointer;
+}
+.text::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: black; /* Color of the line */
+  margin-left: 1rem; /* Adjust as needed */
+}
+
+/* CSS for the text */
+.text h3 {
+  margin: 0; /* Remove default margin */
+  padding: 0 1rem; /* Adjust as needed */
+}
+
+/* CSS for the line */
+.text::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: black; /* Color of the line */
+  margin-right: 1rem; /* Adjust as needed */
+}
+.signin-buttons {
+  margin: 0rem 2rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+.signin-texts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem 2rem 1rem 2rem;
+  cursor: pointer;
+}
+.text1 {
+font-size: 12px;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+button.sign1 {
+width: 100%;
+outline: none;
+border: none;
+background-color: black;
+color: white;
+height: 3rem;
+cursor: pointer;
+}
+button.signtext {
+background: none;
+outline: none;
+border: none;
+text-decoration: underline;
+font-weight: 500;
+letter-spacing: 2px;
+font-size: 14px;
+margin-top: 0.8rem;
+cursor: pointer;
+margin-bottom: 20px;
+margin-top: 0px;
+}
+.signin-texts {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin: 0rem 2rem 1rem 2rem;
+cursor: pointer;
+}
+.tooltip {
+margin-top: 10px;
+color: red;
+}
+
+.login-dialog.success {
+position: fixed;
+background: white;
+padding: 1rem;
+border-top: 13px solid blue;
+border: 2px solid;
+align-items: center;
+display: flex;
+flex-direction: column;
+}
+.login-dialog.error {
+position: fixed;
+background: white;
+padding: 1rem;
+border-top: 13px solid blue;
+border: 2px solid;
+align-items: center;
+display: flex;
+flex-direction: column;
+}
+form.signup input#email, input#name, input#password {
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  background-color: rgb(239 244 244);
   color: black;
   border: none;
   outline: none;
   margin-bottom: 2rem;
+  padding: 0px 10px 0px 10px;
+  border-bottom: 2px solid black;
+  border-radius: 1rem;
 }
 form.signup  h3{
     margin: 2rem 0rem 2rem 0rem;

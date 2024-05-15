@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import '../styles/loginpop.css';
 import pic from '../assets/pexels-pixabay-416471.jpg';
 import { useHistory } from 'react-router-dom';
-import SignupPopup from '../Components/signupop';
+import {useContext} from 'react';
+import { UserContext } from './UserContext';
 
-function LoginPopup({ onClose, handleLogin }) {
+function LoginPopup({ onClose, handleLogin, onOpenSignupPopup}) {
   const [values, setValues] = useState({
     email: '',
     password: ''
@@ -18,16 +19,12 @@ function LoginPopup({ onClose, handleLogin }) {
   const history = useHistory();
   const [errors, setErrors] = useState({});
   const [loginStatus, setLoginStatus] = useState(null);
-  const [isSignupPopupOpen, setIsSignupPopupOpen] = useState(false);
+  const {setEmail} = useContext(UserContext);
+  const{setName} = useContext(UserContext);
 
-  const openSignupPopup = () => {
-    setIsSignupPopupOpen(true);
-  };
+ 
 
-  const closeSignupPopup = () => {
-    setIsSignupPopupOpen(false);
-  };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -44,10 +41,13 @@ function LoginPopup({ onClose, handleLogin }) {
       const data = await response.json();
       if (data.success) {
         console.log('Logged in as:', data.user.name);
+        setName(data.user.name);
         setLoginStatus({ success: true, message: 'Logged in successfully' });
+        
         setTimeout(() => {
           history.push('/Menu');
           handleLogin();
+          setEmail(data.user.email);
           onClose();
         }, 2500);
       } else {
@@ -69,14 +69,16 @@ function LoginPopup({ onClose, handleLogin }) {
   }, []);
 
   return (
+    
     <div className="popup-container">
       <div className="popup">
         <div className="popup-content">
-          <div className="close">
-            <button className="close-btn" onClick={onClose}>X</button>
-          </div>
+          
           <div className="popup-header">
             <h2>Login</h2>
+            <div className="close">
+            <button className="close-btn" onClick={onClose}>X</button>
+          </div>
           </div>
           <form action="" onSubmit={handleSubmit}>
             <h3>Enter your email to log in</h3>
@@ -90,15 +92,8 @@ function LoginPopup({ onClose, handleLogin }) {
           <div className="text">
             <h3>OR</h3>
           </div>
-          <div className="text1">
-            <p>By Continuing, you agree to the updated <b>Terms of Sale, Terms of Service </b>and <b>Privacy Policy.</b></p>
-          </div>
-          <div className="signin-buttons">
-            <button className="sign1">Continue with Google</button>
-            <button className="sign1">Continue With Facebook</button>
-          </div>
           <div className="signin-texts">
-            <button className="signtext" onClick={openSignupPopup}> <p>npm install -g eslint</p></button>
+            <button className="signtext" onClick={() => { onClose(); onOpenSignupPopup() }}> <p>Don&apos;t have an account then, SignUp</p></button>
           </div>
         </div>
         <div className="popup-pic">
@@ -106,8 +101,6 @@ function LoginPopup({ onClose, handleLogin }) {
         </div>
       </div>
 
-      {isSignupPopupOpen && <SignupPopup onClose={closeSignupPopup} handleLogin={handleLogin} />}
-      
       {loginStatus && (
         <div className={`login-dialog ${loginStatus.success ? 'success' : 'error'}`}>
           <p>{loginStatus.message}</p>
@@ -120,6 +113,7 @@ function LoginPopup({ onClose, handleLogin }) {
 LoginPopup.propTypes = {
   onClose: PropTypes.func.isRequired, // onClose should be a function and is required
   handleLogin: PropTypes.func.isRequired, // handleLogin should be a function and is required
+  onOpenSignupPopup: PropTypes.func.isRequired
 };
 
 export default LoginPopup;

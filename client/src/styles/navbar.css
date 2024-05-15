@@ -98,7 +98,7 @@ header{
   align-items: center;
   justify-content: space-around;
   padding: 0px 10px;
-  transition: none;
+  position: relative;
 }
 
 .middle a {
@@ -177,6 +177,41 @@ header{
   width: 65%;
   height: auto;
 }
+.cart{
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.cart img:hover{
+  box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.75);
+}
+.profile-btn img:hover{
+  box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.75);
+}
+.book-btn:hover{
+  box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.75);
+}
+.middle a:hover{
+  transform: scale(1.1);
+}
+
+.middle a:focus {
+  position: relative;
+}
+
+.middle a:focus::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust to position the underline below the anchor */
+  width: 70%;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
 @media(min-width: 768px) and (max-width: 991px) {
 
   .navbar {

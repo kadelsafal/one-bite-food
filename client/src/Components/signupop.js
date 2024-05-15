@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes if not already imported
 import "../styles/signuppop.css";
 import pic from "../assets/pexels-pixabay-416471.jpg";
 
-function SignupPopup({ onClose, handleLogin }) {
+function SignupPopup({ onClose, onOpenLoginPopup}) {
   const [values, setValues] = useState({
     name:'',
     email:'',
@@ -36,8 +36,8 @@ function SignupPopup({ onClose, handleLogin }) {
         console.log('Signup successful');
         setLoginStatus({ success: true, message: 'Signed up successfully' });
         setTimeout(() => {
-          handleLogin();
-          onClose(); // Close the popup
+          onOpenLoginPopup();
+          
         }, 2000);
       } else {
         console.error('Signup failed:', data.message);
@@ -50,16 +50,23 @@ function SignupPopup({ onClose, handleLogin }) {
       setLoginStatus({ success: false, message: 'Failed to log in' });
     }
   };
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
   
   return (
-    <div className='popup-container'>
-      <div className='popup'>
-        <div className='popup-content'>
-          <div className="close">
+    <div className='popups-container'>
+      <div className='popups'>
+        <div className='popups-content'>
+          <div className="popups-header">
+            <h2>Signup</h2>
+            <div className="close">
             <button className="close-btn" onClick={onClose}>X</button>
           </div>
-          <div className="popup-header">
-            <h2>Signup</h2>
+          
           </div>
           <form className='signup' action='' onSubmit={handleSubmit}>
             <h3>Enter your email to Sign Up.</h3>
@@ -74,7 +81,7 @@ function SignupPopup({ onClose, handleLogin }) {
             <button type="submit">Continue</button>
           </form>
         </div>
-        <div className='popup-pic'>
+        <div className='popups-pic'>
           <img src={pic} alt='img' />
         </div>
       </div>
@@ -95,7 +102,8 @@ function SignupPopup({ onClose, handleLogin }) {
 
 SignupPopup.propTypes = {
   onClose: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired
+  handleLogin: PropTypes.func.isRequired,
+  onOpenLoginPopup : PropTypes.func.isRequired
 };
 
 export default SignupPopup;

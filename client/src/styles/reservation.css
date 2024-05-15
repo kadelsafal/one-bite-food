@@ -1,0 +1,170 @@
+/* reservation.css */
+
+.reservation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 
+  
+  .closebtn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    position: absolute;
+    
+  }
+  
+  /* eslint-disable-next-line */
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+  }
+  .reservation-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 25px;
+    width: 28vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.reservation-rightbox {
+    width: 100%;
+}
+.reservation-rightbox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.reservation-container p{
+    font-size: 14px;
+    text-align: justify;
+}
+.reservation-container h1{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.reservation-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+.textfield {
+    width: 100%;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+}
+.reservation-container input#name{
+    font-size: 14px;
+}
+.timefield {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+input#time {
+    width: 60%;
+    font-size: 14px;
+    letter-spacing: 5px;
+    height: 2.5rem;
+    background-color: #eaeaea;
+    outline: none;
+    border: none;
+    padding: 0px 10px 0px 10px;
+}
+.datefield {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.tablefield {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+/* Adjust the width of the select input */
+.tablefield .Select__control {
+    width: 100%;
+}
+.css-b62m3t-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+input#date {
+    width: 100%;
+    padding: 0px;
+    height: 2.5rem;
+    padding: 0px 10px 0px 10px;
+    font-size: 14px;
+    background-color: #eaeaea;
+    border: none;
+    outline: none;
+    letter-spacing: 5px;
+}
+  .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+
+  .book-dialog.success {
+    position: fixed;
+    background: white;
+    padding: 1rem;
+    border-top: 13px solid blue;
+    border: 2px solid;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .book-dialog.error {
+  position: fixed;
+  background: red;
+  padding: 1rem;
+  border-top: 13px solid blue;
+  border: 2px solid;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  }
+  .blur-background {
+    filter: blur(5px);
+}

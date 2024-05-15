@@ -1,14 +1,13 @@
-import React from 'react';
-import '../styles/footer.css';
-import Logo from '../assets/vector.png';
-import facebook from '../assets/icons8-facebook-64.png';
-import instagram from '../assets/icons8-instagram-64.png';
-import utube from '../assets/icons8-youtube-64.png';
-import linkedln from '../assets/icons8-linkedin-64.png';
-import twitter from '../assets/icons8-twitter-64.png';
 
+import '../styles/footer.css'; // Importing CSS styles for the footer
+import Logo from '../assets/vector.png'; // Importing logo image
+import facebook from '../assets/icons8-facebook-64.png'; // Importing Facebook icon
+import instagram from '../assets/icons8-instagram-64.png'; // Importing Instagram icon
+import utube from '../assets/icons8-youtube-64.png'; // Importing YouTube icon
+import linkedln from '../assets/icons8-linkedin-64.png'; // Importing LinkedIn icon
+import twitter from '../assets/icons8-twitter-64.png'; // Importing Twitter icon
+import { Link } from "react-router-dom"; // Importing Link component from react-router-dom
 
-import {Link} from "react-router-dom";
 function Footer() {
   return (
     <div>

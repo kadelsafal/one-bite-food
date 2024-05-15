@@ -9,7 +9,7 @@ const Homepage = () => {
   return (
     <main>
       <section className="section-picture">
-        <div className="picture">
+        <div className="bgpic">
           <img src={foodImage} alt="Food" />
         </div>
       </section>
@@ -22,23 +22,33 @@ const Homepage = () => {
       </section>
       <section className="section-top-sales">
         <div className="pictures3">
-          <h3>Our Top Sales</h3>
+          <h1>Our Top Sales</h1>
+        <div className='card-items'>
           <div className="picture-item">
+            <div className='pics-card'>
             <img src={momoImage} alt="Food" />
+            </div>
             <p>MOMO</p>
           </div>
           <div className="picture-item">
+          <div className='pics-card'>
             <img src={pastaImage} alt="Food" />
+          </div>
             <p>Pasta</p>
           </div>
           <div className="picture-item">
+          <div className='pics-card'> 
             <img src={tunaImage} alt="Food" />
+            </div>
             <p>Tuna</p>
           </div>
           <div className="picture-item">
+          <div className='pics-card'> 
             <img src={f1Image} alt="Food" />
+           </div>
             <p>Noodles</p>
           </div>
+        </div>
         </div>
       </section>
     </main>
