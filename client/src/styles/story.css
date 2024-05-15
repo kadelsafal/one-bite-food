@@ -1,106 +1,39 @@
-.container {
-  position: relative;
+
+.popup-box {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-}
-
-.background-image {
-  background-image: url('../assets/food2.jpg'); /* Specify the path to the background image */
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  position: relative;
+  top: -4rem;
 }
 .about-us {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  position: relative;
-  top: 4rem;
-  margin-bottom: 5rem;
-  gap: 10px;
-  border-left: 5px solid black;
+  width: 45%;
+  color: white;
+  background-color: #23304b;
   border-bottom: 5px solid black;
-  border-radius: 5rem;
+  border-right: 5px solid black;
+  border-radius: 3rem;
 }
 .about-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 73%;
-  height: 100%;
   text-align: justify;
-  padding: 35px;
-  border-bottom: 5px solid black;
-  border-left:5px solid black;
-  border-radius:2rem;
-  margin-bottom: 2rem;
+  padding: 0px 32px;
+  margin-bottom: 3rem;
 }
-.images {
+.about-text h2{
   width: 100%;
-  height: auto;
-  padding: 35px;
-  border-radius: 2rem;
-}
-.our-story {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  position: relative;
-  top: 4rem;
-  margin-bottom: 5rem;
-  gap: 10px;
-  border-left: 5px solid black;
-  border-bottom: 5px solid black;
-  border-radius: 5rem;
-}
-.story-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 73%;
-  height: 100%;
-  text-align: justify;
-  padding: 35px;
-  border-bottom: 5px solid black;
-  border-right:5px solid black;
-  border-radius:2rem;
-}
-.images {
-  width: 100%;
-  height: auto;
-  padding: 35px;
-  border-radius: 2rem;
-}
-.popup {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 800px;
   text-align: center;
-  position: relative;
 }
-
-.popup h2, .popup h3 {
-  color: #333;
+.story-pics {
+  width: 80%;
+  margin-bottom: 39px;
+  border: 15px solid white;
 }
-
-.popup p {
-  color: #666;
-  line-height: 1.5;
-}
-
-.paragraphs {
-  margin-top: 20px;
+.story-pics img {
+  width: 100%;
+  
 }

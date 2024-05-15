@@ -154,7 +154,7 @@ const checkTableAvailability = async (tableNumber) => {
                                         selected={date}
                                         onChange={(date) => setDate(date)}
                                         minDate={new Date()}
-                                        maxDate={new Date(Date.now() + 2 * 24 * 60 * 60 * 1000)} // Two days from now
+                                        maxDate={new Date(Date.now())} // Two days from now
                                         dateFormat="yyyy-MM-dd"
                                         required
                                     />
