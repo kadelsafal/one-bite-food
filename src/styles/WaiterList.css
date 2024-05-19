@@ -1,6 +1,14 @@
 .waiter-list {
-    font-family: Arial, sans-serif;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 4px solid black;
+  border-right: 4px solid black;
+  border-radius: 3rem;
+}
   
   .waiter-list h2 {
     margin-bottom: 10px;
@@ -12,15 +20,17 @@
   }
   
   .waiter-list li {
-    background-color: #f7f7f7; /*background color*/
-    border-radius: 8px;
+    background-color: #fcf7f7;
+    border-radius: 1rem;
     margin-bottom: 10px;
-    width: 200px;
-    padding: 15px;
+    width: 194px;
+    padding: 7px;
     display: flex;
     align-items: center;
-    border: 1.2px solid black; 
-  }
+    text-align: center;
+    border-left: 4px solid black;
+    border-top: 4px solid black;
+}
   
   .waiter-list li:last-child {
     margin-bottom: 0;
@@ -36,7 +46,13 @@
   }
   
   .waiter-list li .waiter-name {
-    font-size: 16px;
-    font-weight: bold;
-  }
+    font-size: 19px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+}
+  .waiter-list h2, .waiter-list h3 {
+    font-size: 28px;
+    font-weight: bolder;
+    font-family: monospace;
+}
   

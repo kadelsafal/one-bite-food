@@ -1,25 +1,37 @@
 nav {
-  top: 20px; /* Position from the top */
-  left: 0; /* Position from the left */
-  bottom: 20px; /* Position from the bottom */
-  height: calc(100% - 40px); /* Full height minus top and bottom margins */
+  height: 80vh;
   background-color: #B5C0D0;
-  padding: 10px;
-  min-width: 160px; /* Fixed width */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  padding: 45px;
+  position: relative;
+  min-width: 245px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  top: 4%;
+  left: 2%;
 }
+
 
 nav ul {
   list-style: none;
+  margin: 0;
+  width: 100%;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
   padding: 0;
-  margin: 0; /* Remove default margin */
 }
-
 nav ul li {
   display: flex;
-  align-items: center;
   margin-left: 0;
-  padding-bottom: 13px;
+  width: 100%;
+  padding: 17px;
+  justify-content: start;
+  align-items: center;
 }
 
 nav ul li a {
@@ -38,7 +50,16 @@ body, html {
   padding: 0;
   height: 100%;
 }
-
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.logo img {
+  width: 4rem;
+}
 .navbar {
   display: flex;
   flex-direction: column;
@@ -47,15 +68,14 @@ body, html {
 }
 
 .logout-button {
-  margin-left: 45px;
   font-size: 14px;
-  align-items: center;
-  margin-top: 270px;
-  background-color: #759ebd; /* Set background color */
+  background-color: #759ebd;
   border: 1.2px solid black;
   padding: 4px;
   cursor: pointer;
-  transition: rgb(200, 213, 233) 0.3s; /* Smooth transition on hover */
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .logout-button:hover {

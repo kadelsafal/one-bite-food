@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../styles/login.css';
+import { UserContext } from '../Components/UserContext';
+
 function Login() {
   const [values, setValues] = useState({
     email: '',
@@ -9,8 +11,7 @@ function Login() {
 
   const [errors, setErrors] = useState({});
   const [loginStatus, setLoginStatus] = useState(null);
-  const [role, setRole] = useState('admin');
-
+  const { setuserRole } = useContext(UserContext);
   const history = useHistory();
 
   const handleInput = (e) => {
@@ -20,17 +21,20 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
+      const response = await fetch('http://localhost:3001/api/userlogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...values, role }),
+        body: JSON.stringify(values),
       });
+
       const data = await response.json();
       if (response.ok) {
         if (data.success) {
           setLoginStatus({ success: true, message: data.message });
+          setuserRole(data.role);
+          console.log("user", data.role);
           setTimeout(() => {
             history.push('/dashboard');
           }, 2000);
@@ -44,7 +48,6 @@ function Login() {
       setErrors({ message: 'Failed to log in. Please try again later.' });
     }
   };
-  
 
   return (
     <div className='login-container'>
@@ -70,10 +73,6 @@ function Login() {
             required
           />
           {errors.password && <span className='text-error'>{errors.password}</span>}
-          <select value={role} onChange={(e) => setRole(e.target.value)} required>
-            <option value='admin'>Admin</option>
-            <option value='waiter'>Waiter</option>
-          </select>
           <button type='submit'>Login</button>
         </form>
       </div>

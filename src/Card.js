@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import './card.css';
 
-function Card({ layout, title, description, image, buttons,button, booked, time1, time2, time3, Available, price }) {
+function Card({ layout, title, description, image,edit , delte , buttons,button, booked, time1, time2, time3, Available, price }) {
   if (layout === 'menu') {
     return (
       <div className='card-box'>
+        <div className='card-btn'>
+          <button className='edit'>{edit}</button>
+          <button className='delete'>{delte}</button>
+        </div>
          <div className="card">
           <img src={image} alt="Card" className="card-image" />
         </div>
@@ -23,6 +27,10 @@ function Card({ layout, title, description, image, buttons,button, booked, time1
   } else {
     return (
       <div className='card-box'>
+        <div className='card-btn'>
+          <button className='edit'>{edit}</button>
+          <button className='delete'>{delte}</button>
+        </div>
         <div className="card">
           <img src={image} alt="Card" className="card-image" />
         </div>
@@ -56,6 +64,8 @@ Card.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   buttons: PropTypes.string,
+  edit:PropTypes.string,
+  delte:PropTypes.string,
   button: PropTypes.string,
   booked: PropTypes.string,
   time1: PropTypes.string,
