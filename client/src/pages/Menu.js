@@ -53,17 +53,18 @@ function Menu({ selectedItems, setSelectedItems}) { // Destructure setSelectedIt
           <h1>Our Menu</h1>
         </div>
         <div className='cards'>
-          {menuItems.map((menuItem) => (
-            <Card
-              key={menuItem.id} // Assuming each menu item has a unique ID
-              layout="menu"
-              image={`data:image/jpeg;base64,${menuItem.image.toString('base64')}`}
-              title={menuItem.title}
-              description={menuItem.description}
-              price={menuItem.price}
-              addToTakeawayCart={(quantity) => addToTakeawayCart(menuItem, quantity)}
-            />
-          ))}
+        {menuItems.map((menuItem) => (
+  <Card
+    key={menuItem.id} // Assuming each menu item has a unique ID
+    layout="menu"
+    image={menuItem.image ? `data:image/jpeg;base64,${menuItem.image.toString('base64')}` : null} // Add null check here
+    title={menuItem.title}
+    description={menuItem.description}
+    price={menuItem.price}
+    addToTakeawayCart={(quantity) => addToTakeawayCart(menuItem, quantity)}
+  />
+))}
+
         </div>
       </main>
       <Takeawaycart onClose={() => setShowCart(false)} selectedItems={selectedItems} setSelectedItems={setSelectedItems} showCart={showCart} />

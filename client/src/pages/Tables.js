@@ -90,17 +90,18 @@ function Tables({ isLoggedIn, handleLogin,tableStatus,setTableStatus }) {
           </div>
           <div className='cards'>
           {TableItems.map((item, index) => (
-              <Card 
-                key={index}
-                layout="default"
-                image={`data:image/jpeg;base64,${item.table_image.toString('base64')}`} // Assuming each table item object has an 'image' property
-                title={item.table_title} // Assuming each table item object has a 'title' property
-                description={item.table_description} // Assuming each table item object has a 'description' property
-                button={tableStatus[item.table_title] === 'booked' ? "• Booked" : "Book a table"}
-                booked={tableStatus[item.table_title] === 'booked' ? "• Booked" : "Available"}
-                onClick={() => handleTableClick(item.table_title)}
-              />
-            ))}
+  <Card 
+    key={index}
+    layout="default"
+    image={item.table_image ? `data:image/jpeg;base64,${item.table_image}` : null} // Add null check here
+    title={item.table_title} // Assuming each table item object has a 'title' property
+    description={item.table_description} // Assuming each table item object has a 'description' property
+    button={tableStatus[item.table_title] === 'booked' ? "• Booked" : "Book a table"}
+    booked={tableStatus[item.table_title] === 'booked' ? "• Booked" : "Available"}
+    onClick={() => handleTableClick(item.table_title)}
+  />
+))}
+
           </div>
         </section>
         

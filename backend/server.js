@@ -102,12 +102,16 @@ app.get('/menu-items', (req, res) => {
     } else {
       // Convert image data to base64
       results.forEach((item) => {
-        item.image = item.image.toString('base64');
+        if (item.image) {
+          item.image = item.image.toString('base64');
+        }
       });
       res.json(results);
     }
   });
 });
+
+// Suggested code with null checking
 app.get('/table-items', (req, res) => {
   const query = 'SELECT id, table_title, table_description, table_status, table_image FROM table_items';
   db.query(query, (err, results) => {
@@ -115,14 +119,18 @@ app.get('/table-items', (req, res) => {
       console.error('Error fetching table items:', err);
       res.status(500).json({ error: 'Error fetching table items' });
     } else {
-      // Convert image data to base64
+      // Convert image data to base64 with null check
       results.forEach((item) => {
-        item.table_image = item.table_image.toString('base64');
+        if (item.table_image) { // Null check added here
+          item.table_image = item.table_image.toString('base64');
+        }
       });
       res.json(results);
     }
   });
 });
+
+
 
 // Import necessary modules
 app.post('/api/menu_orders', (req, res) => {
