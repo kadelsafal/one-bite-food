@@ -161,17 +161,17 @@ app.put('/api/waiters/:id', (req, res) => {
   });
 });
 
+
 // Endpoint to add a new waiter
 app.post('/api/waiters', (req, res) => {
-  const { name, email, password } = req.body;
-  const sql = `INSERT INTO waiter (name, email, password) VALUES (?, ?, ?)`;
-  db.query(sql, [name, email, password], (err, result) => {
+  const { name, email, password, image_url } = req.body;
+  const sql = `INSERT INTO waiter (name, email, password, image_url) VALUES (?, ?, ?, ?)`;
+  db.query(sql, [name, email, password, image_url], (err, result) => {
     if (err) {
-      console.error('Error adding waiter:', err);
       res.status(500).json({ success: false, message: 'Failed to add waiter' });
     } else {
-      const newWaiter = { id: result.insertId, name, email, password };
-      res.json({ success: true, message: 'Waiter added successfully', waiter: newWaiter });
+      const newWaiter = { id: result.insertId, name, email, password, image_url };
+      res.json({ success: true, waiter: newWaiter });
     }
   });
 });
@@ -206,6 +206,10 @@ app.put('/api/waiters/:id', (req, res) => {
 });
 
 
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+

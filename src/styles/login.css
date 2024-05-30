@@ -1,9 +1,150 @@
+/* Ensure full-width layout for mobile devices */
+@media (max-width: 767px) {
+  .login-container {
+    flex-direction: column; /* Stack the elements vertically */
+    padding-left: 0; /* Remove padding */
+    padding-right: 0; /* Remove padding */
+  }
+  
+  .login-pic, .login-content {
+    flex: none; /* Prevent flex from shrinking */
+    width: 100%; /* Full width for both */
+    padding: 20px; /* Add some padding */
+  }
+
+  .login-pic img {
+    max-width: 100%; /* Ensure image fits within the container */
+    max-height: auto; /* Maintain aspect ratio */
+  }
+
+  .login-header h2 {
+    font-size: 32px; /* Smaller font size */
+  }
+
+  form {
+    padding: 10px; /* Reduce padding */
+  }
+
+  input, select {
+    font-size: 14px; /* Smaller font size */
+    padding: 8px; /* Smaller padding */
+  }
+
+  button {
+    font-size: 18px; /* Adjust font size */
+    padding: 10px 20px; /* Add padding for touch targets */
+  }
+  
+  .login-dialog {
+    width: 90%; /* Almost full width */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .login-dialog button {
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+/* Adjust layout for tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .login-container {
+    flex-direction: column; /* Stack the elements vertically */
+    padding-left: 0; /* Remove padding */
+    padding-right: 0; /* Remove padding */
+  }
+
+  .login-pic, .login-content {
+    flex: none; /* Prevent flex from shrinking */
+    width: 100%; /* Full width for both */
+    padding: 20px; /* Add some padding */
+  }
+
+  .login-pic img {
+    max-width: 100%; /* Ensure image fits within the container */
+    max-height: auto; /* Maintain aspect ratio */
+  }
+
+  .login-header h2 {
+    font-size: 36px; /* Adjust font size */
+  }
+
+  form {
+    padding: 15px; /* Adjust padding */
+  }
+
+  input, select {
+    font-size: 16px; /* Adjust font size */
+    padding: 10px; /* Adjust padding */
+  }
+
+  button {
+    font-size: 20px; /* Adjust font size */
+    padding: 12px 24px; /* Adjust padding */
+  }
+
+  .login-dialog {
+    width: 80%; /* Adjust width */
+    padding: 15px; /* Adjust padding */
+  }
+
+  .login-dialog button {
+    font-size: 16px; /* Adjust font size */
+  }
+}
+
+/* Desktop default adjustments */
+@media (min-width: 1025px) {
+  .login-container {
+    padding-left: 45px; /* Ensure padding */
+    padding-right: 45px; /* Ensure padding */
+  }
+
+  .login-pic, .login-content {
+    flex: 1; /* Ensure flex behavior */
+    padding: 30px; /* Adjust padding */
+  }
+
+  .login-pic img {
+    max-width: 100%; /* Ensure image fits within the container */
+    max-height: 100%; /* Adjust height to match container height */
+  }
+
+  .login-header h2 {
+    font-size: 44px; /* Ensure font size */
+  }
+
+  form {
+    padding: 20px; /* Ensure padding */
+  }
+
+  input, select {
+    font-size: 16px; /* Ensure font size */
+    padding: 10px; /* Ensure padding */
+  }
+
+  button {
+    font-size: 20px; /* Ensure font size */
+    padding: auto; /* Ensure padding */
+  }
+
+  .login-dialog {
+    width: fit-content; /* Ensure width */
+    padding: 20px; /* Ensure padding */
+  }
+
+  .login-dialog button {
+    font-size: 14px; /* Ensure font size */
+  }
+}
+
 .login-container {
     position: relative;
     display: flex;
     flex-direction: row-reverse; /* Reversed direction to position image to the right */
     height: 100vh;
     padding-left: 45px;
+    align-self: center;
+    width:100%
   }
   
   .login-pic {
@@ -45,7 +186,24 @@
     padding: 20px;
     text-align: center;
   }
+
+  .login-content form {
+    display: flex;
+    flex-direction: column;
+  }
   
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    align-self: flex-start; /* Align labels to the left */
+    margin-bottom: 5px; /* Add some bottom margin for spacing */
+  }
+  
+
   input, select {
     width: 100%;
     margin-bottom: 15px;
@@ -62,6 +220,7 @@
     width: fit-content;
     border: 0.9px solid black;
     padding: auto;
+    align-self: center;
   }
 
   button:hover {
@@ -114,4 +273,4 @@
     background-color: crimson; /* Darker blue color on hover */
   }
   
-  
+ 

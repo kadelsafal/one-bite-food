@@ -2,11 +2,13 @@ nav {
   top: 20px; /* Position from the top */
   left: 0; /* Position from the left */
   bottom: 20px; /* Position from the bottom */
-  height: calc(100% - 40px); /* Full height minus top and bottom margins */
+  max-height: calc(100vh - 10px);/* Full height minus top and bottom margins */
   background-color: #B5C0D0;
   padding: 10px;
   min-width: 160px; /* Fixed width */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  overflow-y: auto; 
+  margin-right: 30px;
+
 }
 
 nav ul {

@@ -47,7 +47,7 @@ const Dashboard = () => {
           </thead>
           <tbody>
             {recentOrders.map(order => (
-              <tr key={order.OrderID}>
+              <tr key={orderOrderID}>
                 <td>{order.Name}</td>
                 <td>{order.TableNo}</td>
                 <td>{order.Food}</td>

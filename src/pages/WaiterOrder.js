@@ -197,7 +197,7 @@ function WaiterOrder() {
                   placeholder="Quantity"
                   value={orderDetails.quantity}
                   onChange={(e) => setOrderDetails({ ...orderDetails, quantity: e.target.value })}
-                  required
+                  nprequired
                 />
                 {/* Takeaway Checkbox */}
                 <label>

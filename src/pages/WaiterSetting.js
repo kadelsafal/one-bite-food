@@ -82,7 +82,6 @@ const WaiterSetting = () => {
             <tr>
               <th>Name</th>
               <th>Email</th>
-              <th>Password</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -96,9 +95,6 @@ const WaiterSetting = () => {
               <td>{editMode === waiter.id ? (
                 <input type="text" value={waiter.email} onChange={e => handleInputChange(e, waiter.id, 'email')} />
               ) : waiter.email}</td>
-              <td>{editMode === waiter.id ? (
-                <input type="password" value={waiter.password} onChange={e => handleInputChange(e, waiter.id, 'password')} />
-              ) : waiter.password}</td>
               <td>
                 {editMode === waiter.id ? (
                   <button onClick={() => handleEditWaiter(waiter.id)}>Save</button>

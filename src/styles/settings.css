@@ -1,5 +1,7 @@
 .waiter-setting-container {
   display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .left-navbar {
@@ -10,7 +12,7 @@
   display: flex;
   flex-direction: column;
   width: 100%; 
-  padding: 20px;
+  padding-left: 10px;
   box-sizing: border-box;
 }
 
@@ -77,8 +79,8 @@ tr:nth-child(even) {
 }
 
 th {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #B5C0D0;
+  color: black;
 }
 
 .add-waiter {
@@ -87,4 +89,5 @@ th {
 
 .add-waiter input {
   margin-right: 10px;
+  width: -webkit-fill-available;
 }
