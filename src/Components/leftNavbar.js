@@ -1,26 +1,45 @@
-import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom'; // Import useHistory hook
+<<<<<<< HEAD
+import { useState, useEffect } from 'react';
+=======
+import { useState, useContext } from 'react';
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
+import { Link, useHistory } from 'react-router-dom';
 import logo from "../assets/vector.png";
 import dashboard from "../assets/dashboard.png";
 import menu from "../assets/menu.png";
 import setting from "../assets/settings.png";
 import analysis from "../assets/analysis.png";
+import payment from '../assets/image.png';
+import menupic from '../assets/icons8-restaurant-menu-30.png';
+import tablepic from '../assets/icons8-restaurant-table-30.png';
 import '../styles/leftNavbar.css';
+import { UserContext } from './UserContext'; 
+import PropTypes from 'prop-types';
 
 const Navbar = () => {
-  const history = useHistory(); // Initialize useHistory hook
-  const [showLogoutDialog, setShowLogoutDialog] = useState(false); // State to manage dialog visibility
+<<<<<<< HEAD
+  const history = useHistory();
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false);
+  const [role, setRole] = useState(null);
 
-  // Define handleLogout function
+  // Fetch the user role from local storage when the component mounts
+  useEffect(() => {
+    const userRole = localStorage.getItem('role');
+    setRole(userRole);
+  }, []);
+
   const handleLogout = () => {
-    // Clear any authentication-related data (if any)
-    // For example, clear local storage or session storage
-    localStorage.removeItem('token'); // Example: Remove authentication token
+    localStorage.removeItem('token');
+    localStorage.removeItem('role'); // Remove the role from local storage
+=======
+  const { userRole } = useContext(UserContext);
+  const history = useHistory();
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false);
 
-    // Show logout dialog
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
     setShowLogoutDialog(true);
-
-    // Redirect to the home page after 2 seconds
     setTimeout(() => {
       history.push('/');
     }, 2000);
@@ -42,21 +61,51 @@ const Navbar = () => {
           <img src={menu} alt="Menu" style={{ width: '20px', marginRight: '5px' }} />
           <Link to='/waiter-order'>Waiter Order</Link>
         </li>
+<<<<<<< HEAD
+        {role === 'admin' && (
+=======
+        {userRole !== 'waiter' && ( // Hide settings link if userRole is 'waiter'
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
+          <li>
+            <img src={setting} alt="Setting" style={{ width: '20px', marginRight: '5px' }} />
+            <Link to='/setting'>Setting</Link>
+          </li>
+        )}
+<<<<<<< HEAD
+        {role === 'admin' && (
+          <li>
+            <img src={analysis} alt="Analysis" style={{ width: '20px', marginRight: '5px' }} />
+            <Link to='/analysis'>Analysis</Link>
+          </li>
+        )}
+
         <li>
-          <img src={setting} alt="Setting" style={{ width: '20px', marginRight: '5px' }} />
-          <Link to='/setting'>Setting</Link>
-        </li>
+          <button className="logout-button" onClick={handleLogout}>Logout</button>
+=======
         <li>
           <img src={analysis} alt="Analysis" style={{ width: '20px', marginRight: '5px' }} />
           <Link to='/analysis'>Analysis</Link>
         </li>
         <li>
-          {/* Logout button */}
-          <button className="logout-button" onClick={handleLogout}>Logout</button>
+          <img src={payment} alt="Table Payment" style={{ width: '20px', marginRight: '5px' }} />
+          <Link to='/tablePay'>Payment</Link>
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
         </li>
+        <li>
+          <img src={menupic} alt="Menu Table" style={{ width: '20px', marginRight: '5px' }} />
+          <Link to='/MenuTable'>Menu Card</Link>
+        </li>
+        <li>
+          <img src={tablepic} alt="Table Card" style={{ width: '20px', marginRight: '5px' }} />
+          <Link to='/TableItems'>Table Card</Link>
+        </li>
+        
       </ul>
+<<<<<<< HEAD
 
-      {/* Logout dialog */}
+=======
+      <button className="logout-button" onClick={handleLogout}>Logout</button>
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
       {showLogoutDialog && (
         <div className="logout-dialog">
           <p>Successful Logout</p>
@@ -65,5 +114,9 @@ const Navbar = () => {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  userRole: PropTypes.string.isRequired,
+};
 
 export default Navbar;

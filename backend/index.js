@@ -57,9 +57,9 @@ app.post('/api/login', (req, res) => {
 });
 
 // Endpoint to fetch waiter data
-app.get('/api/waiter', (req, res) => {
+app.get('/api/waiters', (req, res) => {
   // Query to select all waiters from the database
-  const sql = `SELECT name, image_url FROM waiter`;
+  const sql = `SELECT * FROM waiter`;
 
   // Execute the SQL query
   db.query(sql, (err, result) => {
@@ -119,6 +119,97 @@ app.post('/api/submit-order', (req, res) => {
 });
 
 
+// Endpoint to fetch all orders
+app.get('/api/orders', (req, res) => {
+  const sql = `SELECT * FROM orders`;
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error('Error fetching orders:', err);
+      res.status(500).json({ success: false, message: 'Failed to fetch orders' });
+    } else {
+      res.json({ success: true, orders: result });
+    }
+  });
+});
+
+// Endpoint to delete a waiter
+app.delete('/api/waiters/:id', (req, res) => {
+  const waiterId = req.params.id;
+  const sql = 'DELETE FROM waiter WHERE id = ?';
+  db.query(sql, [waiterId], (err, result) => {
+    if (err) {
+      console.error('Error deleting waiter:', err);
+      res.status(500).json({ success: false, message: 'Failed to delete waiter' });
+    } else {
+      res.json({ success: true, message: 'Waiter deleted successfully' });
+    }
+  });
+});
+
+// Endpoint to update a waiter
+app.put('/api/waiters/:id', (req, res) => {
+  const waiterId = req.params.id;
+  const updatedData = req.body;
+  const sql = 'UPDATE waiter SET ? WHERE id = ?';
+  db.query(sql, [updatedData, waiterId], (err, result) => {
+    if (err) {
+      console.error('Error updating waiter:', err);
+      res.status(500).json({ success: false, message: 'Failed to update waiter' });
+    } else {
+      res.json({ success: true, message: 'Waiter updated successfully' });
+    }
+  });
+});
+
+
+// Endpoint to add a new waiter
+app.post('/api/waiters', (req, res) => {
+  const { name, email, password, image_url } = req.body;
+  const sql = `INSERT INTO waiter (name, email, password, image_url) VALUES (?, ?, ?, ?)`;
+  db.query(sql, [name, email, password, image_url], (err, result) => {
+    if (err) {
+      res.status(500).json({ success: false, message: 'Failed to add waiter' });
+    } else {
+      const newWaiter = { id: result.insertId, name, email, password, image_url };
+      res.json({ success: true, waiter: newWaiter });
+    }
+  });
+});
+
+// Endpoint to delete a waiter
+app.delete('/api/waiters/:id', (req, res) => {
+  const id = req.params.id;
+  const sql = `DELETE FROM waiter WHERE id = ?`;
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting waiter:', err);
+      res.status(500).json({ success: false, message: 'Failed to delete waiter' });
+    } else {
+      res.json({ success: true, message: 'Waiter deleted successfully' });
+    }
+  });
+});
+
+// Endpoint to edit a waiter
+app.put('/api/waiters/:id', (req, res) => {
+  const id = req.params.id;
+  const { name, email, password } = req.body;
+  const sql = `UPDATE waiter SET name = ?, email = ?, password = ? WHERE id = ?`;
+  db.query(sql, [name, email, password, id], (err, result) => {
+    if (err) {
+      console.error('Error updating waiter:', err);
+      res.status(500).json({ success: false, message: 'Failed to update waiter' });
+    } else {
+      res.json({ success: true, message: 'Waiter updated successfully' });
+    }
+  });
+});
+
+
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+

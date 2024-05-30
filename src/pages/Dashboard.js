@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/dashboard.css';
 import WaitersList from './WaitersList';
@@ -6,20 +6,28 @@ import LeftNavbar from '../Components/leftNavbar';
 
 const Dashboard = () => {
   const [recentOrders, setRecentOrders] = useState([]);
-  const [cancelledOrders, setCancelledOrders] = useState([]);
+  const [onlineOrders, setOnlineOrders] = useState([]);
 
   useEffect(() => {
     fetchOrders();
+    fetchOnlineOrders();
   }, []);
 
   const fetchOrders = async () => {
     try {
       const response = await axios.get('http://localhost:3001/api/orders');
       const orders = response.data.orders;
-      const recent = orders.filter(order => order.Status !== 'Cancelled');
-      const cancelled = orders.filter(order => order.Status === 'Cancelled');
+      const recent = orders.filter(order => order.Status !== 'Cancelled'); // Assuming the status property is 'Status', adjust as necessary
       setRecentOrders(recent);
-      setCancelledOrders(cancelled);
+    } catch (error) {
+      console.error('Error fetching orders:', error);
+    }
+  };
+  const fetchOnlineOrders = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/api/online-orders');
+      const orders = response.data.orders;
+      setOnlineOrders(orders);
     } catch (error) {
       console.error('Error fetching orders:', error);
     }
@@ -31,23 +39,24 @@ const Dashboard = () => {
       <div className="dashboard">
         <h1>Dashboard</h1>
 
-        <h2>Recent Orders</h2>
+        <h2>Recent Table Orders</h2>
+        <div className='recent-orders'>
         <table>
           <thead>
             <tr>
-              <th>Name</th>
               <th>Table No</th>
-              <th>Food</th>
-              <th>Price</th>
+              <th>Menu_item name</th>
               <th>Quantity</th>
-              <th>Total Amount</th>
               <th>Status</th>
-              <th>Takeaway</th>
+              
+              
+              
             </tr>
           </thead>
           <tbody>
+<<<<<<< HEAD
             {recentOrders.map(order => (
-              <tr key={order.OrderID}>
+              <tr key={orderOrderID}>
                 <td>{order.Name}</td>
                 <td>{order.TableNo}</td>
                 <td>{order.Food}</td>
@@ -60,36 +69,57 @@ const Dashboard = () => {
             ))}
           </tbody>
         </table>
+=======
+            
+          {recentOrders.map(order => (
+  <tr key={order.id}> {/* Assuming 'id' is the unique identifier */}
+    <td>{order.table_no}</td>
+    <td>{order.menu_item_title}</td>
+    <td>{order.quantity}</td>
+    <td>{order.status}</td>
+    
+     {/* Corrected access to menu_item_title */}
+    
+  </tr>
+))}
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
 
-        <h2>Cancelled Orders</h2>
+          </tbody>
+        </table>
+        </div>
+        <h2>Online  Takeaway Orders</h2>
+        {/* You can add your cancelled orders table here */}
+        <div className='recent-orders'>
+        
         <table>
           <thead>
             <tr>
+              <th>Email</th>
               <th>Name</th>
-              <th>Table No</th>
-              <th>Food</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total Amount</th>
-              <th>Status</th>
-              <th>Takeaway</th>
+              <th>Product_title</th>
+              <th>Product_quantity</th>
+              
+              
+              
             </tr>
           </thead>
           <tbody>
-            {cancelledOrders.map(order => (
-              <tr key={order.OrderID}>
-                <td>{order.Name}</td>
-                <td>{order.TableNo}</td>
-                <td>{order.Food}</td>
-                <td>{order.Price}</td>
-                <td>{order.Quantity}</td>
-                <td>{order.TotalAmount}</td>
-                <td>{order.Status}</td>
-                <td>{order.Takeaway ? 'Yes' : 'No'}</td>
-              </tr>
-            ))}
+            
+          {onlineOrders.map(order => (
+  <tr key={order.id}> {/* Assuming 'id' is the unique identifier */}
+    <td>{order.email}</td>
+    <td>{order.name}</td>
+    <td>{order.product_title}</td>
+    <td>{order.product_quantity}</td>
+    
+     {/* Corrected access to menu_item_title */}
+    
+  </tr>
+))}
+
           </tbody>
         </table>
+      </div>
       </div>
       <div className="sidebar">
         <WaitersList />

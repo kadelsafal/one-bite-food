@@ -1,0 +1,70 @@
+.analytics-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.left-navbar {
+  width: 200px; /* Adjust width as needed */
+  background-color: #f0f0f0;
+}
+
+.sales-summary {
+  width: 100% ; 
+  box-sizing: border-box;
+}
+
+.order-table-container {
+  width: calc(100% - 200px); /* Adjust width based on the navbar width */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+.order-table th,
+.order-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  border: 0.2px solid black;
+}
+
+.order-table th {
+  background-color: #d6dde7;
+
+}
+
+.order-table-container {
+  width: 100%;
+  flex: 1; /* This ensures that the order table container takes up remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligns children at the start of the container */
+  align-items: center; 
+  height: 20vh;
+    overflow-y: scroll;/* Centers children horizontally */
+}
+
+.rightSide{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+.sales-amount,
+.sales-period{
+  display: inline-block;
+  font-size: 20px;
+  margin: 20px;
+  padding: 30px;
+  align-items: center;
+  background-color: #B5C0D0;
+  width: fit-content;
+  height: fit-content;
+}

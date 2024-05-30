@@ -1,6 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../styles/login.css';
+<<<<<<< HEAD
+=======
+import { UserContext } from '../Components/UserContext';
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
+
 function Login() {
   const [values, setValues] = useState({
     email: '',
@@ -9,8 +14,11 @@ function Login() {
 
   const [errors, setErrors] = useState({});
   const [loginStatus, setLoginStatus] = useState(null);
-  const [role, setRole] = useState('admin');
+<<<<<<< HEAD
 
+=======
+  const { setuserRole } = useContext(UserContext);
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
   const history = useHistory();
 
   const handleInput = (e) => {
@@ -20,17 +28,22 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
+      const response = await fetch('http://localhost:3001/api/userlogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...values, role }),
+        body: JSON.stringify(values),
       });
+
       const data = await response.json();
       if (response.ok) {
         if (data.success) {
+          // Store the user's role in local storage
+          localStorage.setItem('role', data.role);
           setLoginStatus({ success: true, message: data.message });
+          setuserRole(data.role);
+          console.log("user", data.role);
           setTimeout(() => {
             history.push('/dashboard');
           }, 2000);
@@ -44,7 +57,6 @@ function Login() {
       setErrors({ message: 'Failed to log in. Please try again later.' });
     }
   };
-  
 
   return (
     <div className='login-container'>
@@ -53,27 +65,30 @@ function Login() {
           <h2>Login</h2>
         </div>
         <form onSubmit={handleSubmit}>
-          <h3>Enter your email to log in</h3>
-          <input
-            type='email'
-            name='email'
-            placeholder='Enter your email'
-            onChange={handleInput}
-            required
-          />
+          <div className="input-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type='email'
+              id="email"
+              name='email'
+              placeholder='Enter your email'
+              onChange={handleInput}
+              required
+            />
+          </div>
           {errors.email && <span className='text-error'>{errors.email}</span>}
-          <input
-            type='password'
-            name='password'
-            placeholder='Enter your password'
-            onChange={handleInput}
-            required
-          />
+          <div className="input-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type='password'
+              id="password"
+              name='password'
+              placeholder='Enter your password'
+              onChange={handleInput}
+              required
+            />
+          </div>
           {errors.password && <span className='text-error'>{errors.password}</span>}
-          <select value={role} onChange={(e) => setRole(e.target.value)} required>
-            <option value='admin'>Admin</option>
-            <option value='waiter'>Waiter</option>
-          </select>
           <button type='submit'>Login</button>
         </form>
       </div>
