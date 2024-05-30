@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../styles/login.css';
+<<<<<<< HEAD
+=======
+import { UserContext } from '../Components/UserContext';
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
 
 function Login() {
   const [values, setValues] = useState({
@@ -10,7 +14,11 @@ function Login() {
 
   const [errors, setErrors] = useState({});
   const [loginStatus, setLoginStatus] = useState(null);
+<<<<<<< HEAD
 
+=======
+  const { setuserRole } = useContext(UserContext);
+>>>>>>> 45d81bcbc2f2c82e1f227fdb76715d9e0fe3e9b9
   const history = useHistory();
 
   const handleInput = (e) => {
@@ -20,19 +28,22 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
+      const response = await fetch('http://localhost:3001/api/userlogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       });
+
       const data = await response.json();
       if (response.ok) {
         if (data.success) {
           // Store the user's role in local storage
           localStorage.setItem('role', data.role);
           setLoginStatus({ success: true, message: data.message });
+          setuserRole(data.role);
+          console.log("user", data.role);
           setTimeout(() => {
             history.push('/dashboard');
           }, 2000);

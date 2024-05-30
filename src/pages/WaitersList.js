@@ -4,7 +4,7 @@ import '../styles/WaiterList.css';
 
 const WaiterList = () => {
   const [waiters, setWaiters] = useState([]);
-  const [setError] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     fetchWaiters();
@@ -22,6 +22,7 @@ const WaiterList = () => {
 
   return (
     <div className="waiter-list">
+      {error && <p className="error-message">{error}</p>}
       <h2>Active Waiters</h2>
       <ul>
         {waiters.map(waiter => (

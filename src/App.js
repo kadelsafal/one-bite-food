@@ -5,11 +5,17 @@ import WaiterOrder from './pages/WaiterOrder';
 import Login from './pages/Login';
 import Setting from './pages/WaiterSetting';
 import Analytics from './pages/Analytics';
-
+import { UserProvider } from './Components/UserContext';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import TablePay from './pages/TablePay';
+import Menu from './pages/MenuItems';
+import Table from './pages/TableItems';
 
 function App() {
   return (
+    <UserProvider>
+      
+    
     <div className="App">
       <Router>
         <Switch>
@@ -23,9 +29,16 @@ function App() {
           <Route path="/setting" component={Setting} /> 
           {/* Route for the analytics page */}
           <Route path="/analysis" component={Analytics} /> 
+          {/* Route for the Payment page */}
+          <Route path="/tablePay" component={TablePay} /> 
+          {/* Route for the Payment page */}
+          <Route path="/MenuTable" component={Menu} /> 
+          {/* Route for the Payment page */}
+          <Route path="/TableItems" component={Table} /> 
         </Switch>
       </Router>
     </div>
+    </UserProvider>
   );
 }
 

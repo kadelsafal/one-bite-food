@@ -1,0 +1,113 @@
+.pay-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    gap: 45px;
+}
+.Payment-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.Payment.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+}
+.checkbox-container label{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+}
+.box label {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 19px;
+}
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 110px;
+    padding-left: 18px;
+}
+.checkbox-container label{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+}
+.box input, select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 0;
+    border-radius: 7px;
+    font-size: 16px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.Payment.box table {
+    width: 100%;
+    border-collapse: separate;
+    border-right: 6px solid black;
+    border-radius: 3rem;
+    height: 17vh;
+    padding: 14px;
+    border-spacing: 3px;
+}
+.Payment.box th, .Payment.box td {
+    border: 0;
+    padding: 10px;
+    border-radius: 4rem;
+    text-align: center;
+}
+.Payment.box tbody {
+    border-radius: 2rem;
+}
+.Payment.box th {
+    background-color: #792626;
+    color: white;
+}
+p.total-cost {
+    font-size: 20px;
+    letter-spacing: 2px;
+    width: 100%;
+    text-align: right;
+}
+button.pay-btn {
+    padding: 16px;
+    font-size: 15px;
+    border-radius: 1rem;
+}
+button.search_btn{
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 1rem;
+}
